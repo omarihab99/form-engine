@@ -1,0 +1,38 @@
+{
+  "name": "@omarihab/form-engine-spfx",
+  "version": "0.1.0",
+  "description": "SPFx adapters and base classes for SharePoint Form Engine",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "peerDependencies": {
+    "@omarihab/form-engine-core": "^0.1.0",
+    "@microsoft/sp-core-library": ">=1.15.0",
+    "@microsoft/sp-webpart-base": ">=1.15.0",
+    "@microsoft/sp-application-base": ">=1.15.0",
+    "@microsoft/sp-http": ">=1.15.0",
+    "@pnp/sp": ">=3.0.0",
+    "@pnp/graph": ">=3.0.0"
+  },
+  "devDependencies": {
+    "@microsoft/sp-core-library": "^1.20.0",
+    "@microsoft/sp-webpart-base": "^1.20.0",
+    "@microsoft/sp-application-base": "^1.20.0",
+    "@microsoft/sp-http": "^1.20.0",
+    "@pnp/sp": "^4.7.0",
+    "@pnp/graph": "^4.7.0"
+  },
+  "sideEffects": false
+}
