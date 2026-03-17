@@ -17,7 +17,7 @@ export function CheckboxField({ fieldId, label }: CheckboxFieldProps) {
         name={fieldId}
         checked={value === true}
         disabled={isDisabled}
-        className="fe-rounded fe-border-gray-300 fe-text-primary-600 focus:fe-ring-primary-500"
+        className="fe-rounded-sm fe-border-gray-300 fe-text-primary-600 focus:fe-ring-0"
         onChange={(e) => {
           onChange(e.target.checked);
           onBlur();

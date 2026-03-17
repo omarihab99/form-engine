@@ -29,7 +29,7 @@ export function MultiselectField({ fieldId, options }: MultiselectFieldProps) {
             value={String(opt.value)}
             checked={currentValues.includes(opt.value)}
             disabled={isDisabled || opt.disabled}
-            className="fe-rounded fe-border-gray-300 fe-text-primary-600 focus:fe-ring-primary-500"
+            className="fe-rounded-sm fe-border-gray-300 fe-text-primary-600 focus:fe-ring-0"
             onChange={(e) => handleChange(opt.value, e.target.checked)}
           />
           {opt.label}

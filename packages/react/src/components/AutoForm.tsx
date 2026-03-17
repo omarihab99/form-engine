@@ -30,12 +30,12 @@ export function AutoForm({ showErrorSummary = true, className }: AutoFormProps) 
 
   return (
     <div className={`form-engine-root ${className || ''}`} dir={i18n.getDirection()}>
-      <form noValidate className="fe-space-y-6" onSubmit={(e) => e.preventDefault()}>
+      <form noValidate className="fe-space-y-8" onSubmit={(e) => e.preventDefault()}>
         {schema.title && (
-          <h2 className="fe-text-xl fe-font-bold fe-text-gray-900">{schema.title}</h2>
+          <h2 className="fe-text-2xl fe-font-semibold fe-text-primary-500">{schema.title}</h2>
         )}
         {schema.description && (
-          <p className="fe-text-sm fe-text-gray-500">{schema.description}</p>
+          <p className="fe-text-sm fe-text-gray-700">{schema.description}</p>
         )}
 
         {showErrorSummary && <ErrorSummary />}
@@ -44,7 +44,7 @@ export function AutoForm({ showErrorSummary = true, className }: AutoFormProps) 
           <AutoFormSection key={section.id} section={section} />
         ))}
 
-        <div className="fe-pt-4">
+        <div className="fe-pt-6">
           <SubmitButton />
         </div>
       </form>

@@ -10,7 +10,7 @@ export function RadioField({ fieldId, options }: RadioFieldProps) {
   const { value, isDisabled, onChange, onBlur } = useField(fieldId);
 
   return (
-    <div className="fe-space-y-1" role="radiogroup" aria-labelledby={`fe-label-${fieldId}`}>
+    <div className="fe-space-y-2" role="radiogroup" aria-labelledby={`fe-label-${fieldId}`}>
       {options.map((opt) => (
         <label
           key={String(opt.value)}
@@ -22,7 +22,7 @@ export function RadioField({ fieldId, options }: RadioFieldProps) {
             value={String(opt.value)}
             checked={String(opt.value) === String(value)}
             disabled={isDisabled || opt.disabled}
-            className="fe-border-gray-300 fe-text-primary-600 focus:fe-ring-primary-500"
+            className="fe-border-gray-300 fe-text-primary-600 focus:fe-ring-0"
             onChange={() => {
               onChange(opt.value);
               onBlur();

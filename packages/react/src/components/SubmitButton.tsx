@@ -19,8 +19,8 @@ export function SubmitButton({ children, className }: SubmitButtonProps) {
       disabled={isSubmitting}
       className={
         className ||
-        'fe-px-6 fe-py-2 fe-bg-primary-600 fe-text-white fe-rounded-md fe-text-sm fe-font-medium ' +
-          'hover:fe-bg-primary-700 focus:fe-outline-none focus:fe-ring-2 focus:fe-ring-primary-500 focus:fe-ring-offset-2 ' +
+        'fe-px-5 fe-py-2 fe-bg-gray-700 fe-text-white fe-rounded-sm fe-text-sm fe-font-normal ' +
+          'hover:fe-bg-gray-800 focus:fe-outline-none focus:fe-ring-1 focus:fe-ring-gray-500 ' +
           'disabled:fe-opacity-50 disabled:fe-cursor-not-allowed fe-transition-colors'
       }
     >

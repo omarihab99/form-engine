@@ -9,6 +9,7 @@ export default defineConfig([
     sourcemap: true,
     clean: true,
     treeshake: true,
+    target: 'es2017',
   },
   {
     entry: { 'form-engine.min': 'src/browser.ts' },

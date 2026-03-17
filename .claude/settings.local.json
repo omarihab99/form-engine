@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx storybook@latest init --type react --no-dev 2>&1 | tail -30)",
+      "Bash(npm install:*)",
+      "Bash(mkdir -p .storybook && mkdir -p packages/react/src/stories)",
+      "Bash(npx storybook:*)",
+      "Bash(npm ls:*)",
+      "Bash(ls:*)",
+      "Bash(cd:*)",
+      "Bash(npm run:*)",
+      "Bash(grep:*)"
+    ]
+  }
+}

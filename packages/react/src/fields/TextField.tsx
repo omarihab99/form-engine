@@ -1,13 +1,6 @@
 import React from 'react';
 import { useField } from '../hooks/useField';
-
-const INPUT_CLASSES =
-  'fe-w-full fe-px-3 fe-py-2 fe-border fe-border-gray-300 fe-rounded-md fe-text-sm ' +
-  'fe-bg-white fe-transition-colors fe-outline-none ' +
-  'focus:fe-border-primary-500 focus:fe-ring-1 focus:fe-ring-primary-500 ' +
-  'disabled:fe-bg-gray-100 disabled:fe-cursor-not-allowed';
-
-const ERROR_CLASSES = 'fe-border-error-500 focus:fe-border-error-500 focus:fe-ring-error-500';
+import { INPUT_CLASSES, ERROR_CLASSES } from './fieldStyles';
 
 export interface TextFieldProps {
   fieldId: string;

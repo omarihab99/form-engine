@@ -23,11 +23,11 @@ export function FormField({
   if (!field.isVisible) return null;
 
   return (
-    <div className={`fe-field-wrapper ${className || ''}`.trim()}>
+    <div className={`fe-field-wrapper fe-mb-6 ${className || ''}`.trim()}>
       {label && (
         <label
           htmlFor={`fe-field-${fieldId}`}
-          className="fe-block fe-text-sm fe-font-medium fe-text-gray-700 fe-mb-1"
+          className="fe-block fe-text-sm fe-font-normal fe-text-gray-900 fe-mb-1"
         >
           {label}
           {(required || field.isRequired) && (
@@ -39,7 +39,7 @@ export function FormField({
       {children(field)}
 
       {helpText && (
-        <p className="fe-text-xs fe-text-gray-400 fe-mt-1">{helpText}</p>
+        <p className="fe-text-xs fe-text-gray-500 fe-mt-1">{helpText}</p>
       )}
 
       {field.isTouched && field.errors.length > 0 && (

@@ -27,7 +27,7 @@ export function FileField({ fieldId, accept, multiple, maxFileSize }: FileFieldP
 
   return (
     <div
-      className="fe-border-2 fe-border-dashed fe-border-gray-300 fe-rounded-lg fe-p-4 fe-text-center fe-cursor-pointer hover:fe-border-primary-400 fe-transition-colors"
+      className="fe-border fe-border-dashed fe-border-gray-300 fe-rounded-sm fe-p-4 fe-text-center fe-cursor-pointer hover:fe-border-gray-400 fe-transition-colors"
       onClick={() => !isDisabled && inputRef.current?.click()}
     >
       <input

@@ -1,0 +1,362 @@
+{
+  "id": "employee-onboarding",
+  "title": "Employee Onboarding Form",
+  "description": "Complete this form to onboard a new employee",
+  "locale": "en",
+  "sections": [
+    {
+      "id": "personal-info",
+      "title": "Personal Information",
+      "description": "Basic details about the employee",
+      "columns": 2,
+      "fields": [
+        {
+          "id": "firstName",
+          "type": "text",
+          "label": "First Name",
+          "placeholder": "Enter first name",
+          "required": true,
+          "validation": [
+            { "type": "minLength", "value": 2, "message": "First name must be at least 2 characters" },
+            { "type": "maxLength", "value": 50, "message": "First name must not exceed 50 characters" }
+          ]
+        },
+        {
+          "id": "lastName",
+          "type": "text",
+          "label": "Last Name",
+          "placeholder": "Enter last name",
+          "required": true,
+          "validation": [
+            { "type": "minLength", "value": 2, "message": "Last name must be at least 2 characters" }
+          ]
+        },
+        {
+          "id": "email",
+          "type": "text",
+          "label": "Email Address",
+          "placeholder": "employee@company.com",
+          "required": true,
+          "colSpan": 2,
+          "validation": [
+            { "type": "email", "message": "Please enter a valid email address" }
+          ]
+        },
+        {
+          "id": "phone",
+          "type": "text",
+          "label": "Phone Number",
+          "placeholder": "123-456-7890",
+          "helpText": "Format: XXX-XXX-XXXX",
+          "validation": [
+            { "type": "pattern", "value": "^[0-9]{3}-[0-9]{3}-[0-9]{4}$", "message": "Phone must match XXX-XXX-XXXX format" }
+          ]
+        },
+        {
+          "id": "dateOfBirth",
+          "type": "date",
+          "label": "Date of Birth"
+        },
+        {
+          "id": "bio",
+          "type": "textarea",
+          "label": "Short Bio",
+          "placeholder": "Tell us about yourself...",
+          "rows": 4,
+          "colSpan": 2,
+          "maxLength": 500
+        }
+      ]
+    },
+    {
+      "id": "employment-details",
+      "title": "Employment Details",
+      "columns": 2,
+      "fields": [
+        {
+          "id": "department",
+          "type": "dropdown",
+          "label": "Department",
+          "required": true,
+          "placeholder": "Select a department",
+          "options": [
+            { "label": "Engineering", "value": "engineering" },
+            { "label": "Design", "value": "design" },
+            { "label": "Marketing", "value": "marketing" },
+            { "label": "Sales", "value": "sales" },
+            { "label": "Human Resources", "value": "hr" },
+            { "label": "Finance", "value": "finance" },
+            { "label": "Other", "value": "other" }
+          ]
+        },
+        {
+          "id": "otherDepartment",
+          "type": "text",
+          "label": "Specify Department",
+          "placeholder": "Enter department name",
+          "conditions": [
+            {
+              "action": "show",
+              "expressions": [
+                { "field": "department", "operator": "eq", "value": "other" }
+              ]
+            },
+            {
+              "action": "require",
+              "expressions": [
+                { "field": "department", "operator": "eq", "value": "other" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "role",
+          "type": "dropdown",
+          "label": "Role",
+          "required": true,
+          "options": [
+            { "label": "Individual Contributor", "value": "ic" },
+            { "label": "Team Lead", "value": "lead" },
+            { "label": "Manager", "value": "manager" },
+            { "label": "Director", "value": "director" },
+            { "label": "VP", "value": "vp" }
+          ]
+        },
+        {
+          "id": "directReports",
+          "type": "number",
+          "label": "Number of Direct Reports",
+          "min": 0,
+          "max": 100,
+          "defaultValue": 0,
+          "conditions": [
+            {
+              "action": "show",
+              "operator": "or",
+              "expressions": [
+                { "field": "role", "operator": "eq", "value": "lead" },
+                { "field": "role", "operator": "eq", "value": "manager" },
+                { "field": "role", "operator": "eq", "value": "director" },
+                { "field": "role", "operator": "eq", "value": "vp" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "employmentType",
+          "type": "radio",
+          "label": "Employment Type",
+          "required": true,
+          "colSpan": 2,
+          "options": [
+            { "label": "Full-Time", "value": "full-time" },
+            { "label": "Part-Time", "value": "part-time" },
+            { "label": "Contract", "value": "contract" },
+            { "label": "Intern", "value": "intern" }
+          ]
+        },
+        {
+          "id": "contractEndDate",
+          "type": "date",
+          "label": "Contract End Date",
+          "conditions": [
+            {
+              "action": "show",
+              "expressions": [
+                { "field": "employmentType", "operator": "eq", "value": "contract" }
+              ]
+            },
+            {
+              "action": "require",
+              "expressions": [
+                { "field": "employmentType", "operator": "eq", "value": "contract" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "startDate",
+          "type": "date",
+          "label": "Start Date",
+          "required": true
+        },
+        {
+          "id": "salary",
+          "type": "number",
+          "label": "Annual Salary",
+          "min": 0,
+          "step": 1000,
+          "helpText": "Enter gross annual salary in USD",
+          "conditions": [
+            {
+              "action": "hide",
+              "expressions": [
+                { "field": "employmentType", "operator": "eq", "value": "intern" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "manager",
+          "type": "people-picker",
+          "label": "Reporting Manager",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "title": "Skills & Qualifications",
+      "fields": [
+        {
+          "id": "primarySkills",
+          "type": "multiselect",
+          "label": "Primary Skills",
+          "required": true,
+          "helpText": "Select all that apply",
+          "options": [
+            { "label": "JavaScript", "value": "js" },
+            { "label": "TypeScript", "value": "ts" },
+            { "label": "Python", "value": "python" },
+            { "label": "Java", "value": "java" },
+            { "label": "C#", "value": "csharp" },
+            { "label": "Go", "value": "go" },
+            { "label": "React", "value": "react" },
+            { "label": "Angular", "value": "angular" },
+            { "label": "Vue", "value": "vue" },
+            { "label": "SQL", "value": "sql" },
+            { "label": "DevOps", "value": "devops" },
+            { "label": "Cloud (AWS/Azure/GCP)", "value": "cloud" }
+          ]
+        },
+        {
+          "id": "experienceLevel",
+          "type": "radio",
+          "label": "Experience Level",
+          "required": true,
+          "options": [
+            { "label": "Junior (0-2 years)", "value": "junior" },
+            { "label": "Mid-Level (3-5 years)", "value": "mid" },
+            { "label": "Senior (6-10 years)", "value": "senior" },
+            { "label": "Staff+ (10+ years)", "value": "staff" }
+          ]
+        },
+        {
+          "id": "additionalNotes",
+          "type": "rich-text",
+          "label": "Additional Qualifications",
+          "helpText": "Certifications, degrees, or other relevant qualifications"
+        }
+      ]
+    },
+    {
+      "id": "previous-experience",
+      "title": "Previous Experience",
+      "repeatable": true,
+      "minItems": 0,
+      "maxItems": 5,
+      "columns": 2,
+      "collapsible": true,
+      "collapsed": false,
+      "fields": [
+        {
+          "id": "companyName",
+          "type": "text",
+          "label": "Company Name",
+          "required": true
+        },
+        {
+          "id": "jobTitle",
+          "type": "text",
+          "label": "Job Title",
+          "required": true
+        },
+        {
+          "id": "yearsWorked",
+          "type": "number",
+          "label": "Years",
+          "min": 0,
+          "max": 50
+        },
+        {
+          "id": "reasonForLeaving",
+          "type": "dropdown",
+          "label": "Reason for Leaving",
+          "options": [
+            { "label": "Career Growth", "value": "growth" },
+            { "label": "Relocation", "value": "relocation" },
+            { "label": "Compensation", "value": "compensation" },
+            { "label": "Layoff", "value": "layoff" },
+            { "label": "Other", "value": "other" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "documents",
+      "title": "Documents & Agreements",
+      "fields": [
+        {
+          "id": "resume",
+          "type": "file",
+          "label": "Resume / CV",
+          "required": true,
+          "accept": ".pdf,.docx,.doc",
+          "maxFileSize": 10485760,
+          "maxFiles": 1,
+          "helpText": "Upload PDF or Word document (max 10MB)"
+        },
+        {
+          "id": "additionalDocs",
+          "type": "file",
+          "label": "Additional Documents",
+          "accept": ".pdf,.docx,.doc,.png,.jpg,.jpeg",
+          "multiple": true,
+          "maxFileSize": 5242880,
+          "maxFiles": 5,
+          "helpText": "Certificates, transcripts, etc. (max 5 files, 5MB each)"
+        },
+        {
+          "id": "remoteWork",
+          "type": "toggle",
+          "label": "Remote Work Requested",
+          "defaultValue": false
+        },
+        {
+          "id": "remoteLocation",
+          "type": "text",
+          "label": "Remote Work Location",
+          "placeholder": "City, State/Country",
+          "conditions": [
+            {
+              "action": "show",
+              "expressions": [
+                { "field": "remoteWork", "operator": "eq", "value": true }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "agreeToPolicy",
+          "type": "checkbox",
+          "label": "I have read and agree to the company policies",
+          "required": true
+        },
+        {
+          "id": "agreeToNDA",
+          "type": "checkbox",
+          "label": "I agree to the Non-Disclosure Agreement",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "submit": {
+    "type": "rest",
+    "url": "https://api.example.com/onboarding",
+    "method": "POST",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

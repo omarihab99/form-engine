@@ -1,9 +1,6 @@
 import React from 'react';
 import { useField } from '../hooks/useField';
-
-const INPUT_CLASSES =
-  'fe-w-full fe-px-3 fe-py-2 fe-border fe-border-gray-300 fe-rounded-md fe-text-sm ' +
-  'fe-bg-white fe-outline-none focus:fe-border-primary-500 focus:fe-ring-1 focus:fe-ring-primary-500';
+import { INPUT_CLASSES } from './fieldStyles';
 
 export interface PeoplePickerFieldProps {
   fieldId: string;
@@ -35,12 +32,12 @@ export function PeoplePickerField({ fieldId, placeholder }: PeoplePickerFieldPro
           {people.map((person, i) => (
             <span
               key={i}
-              className="fe-inline-flex fe-items-center fe-gap-1 fe-px-2 fe-py-0.5 fe-bg-primary-100 fe-text-primary-800 fe-text-xs fe-rounded-full"
+              className="fe-inline-flex fe-items-center fe-gap-1 fe-px-2 fe-py-0.5 fe-bg-gray-100 fe-text-gray-800 fe-text-xs fe-rounded-sm"
             >
               {person.displayName || person.name || 'User'}
               <button
                 type="button"
-                className="fe-text-primary-600 hover:fe-text-primary-800 fe-font-bold"
+                className="fe-text-gray-600 hover:fe-text-gray-800 fe-font-bold"
                 onClick={() => removePerson(i)}
                 aria-label="Remove"
               >

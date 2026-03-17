@@ -18,7 +18,7 @@ export function ErrorSummary({ className }: ErrorSummaryProps) {
     <div
       className={
         className ||
-        'fe-bg-error-50 fe-border fe-border-error-500 fe-rounded-md fe-p-4'
+        'fe-bg-error-50 fe-border fe-border-error-500 fe-rounded-sm fe-p-4'
       }
       role="alert"
     >

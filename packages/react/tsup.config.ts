@@ -8,5 +8,6 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   treeshake: true,
+  target: 'es2017',
   external: ['react', 'react-dom', '@omarihab/form-engine-core'],
 });

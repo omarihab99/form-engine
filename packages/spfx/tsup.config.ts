@@ -8,6 +8,7 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   treeshake: true,
+  target: 'es2017',
   external: [
     '@omarihab/form-engine-core',
     '@microsoft/sp-core-library',

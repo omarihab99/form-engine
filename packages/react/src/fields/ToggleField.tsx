@@ -19,7 +19,7 @@ export function ToggleField({ fieldId, label }: ToggleFieldProps) {
         id={`fe-field-${fieldId}`}
         disabled={isDisabled}
         className={`fe-relative fe-inline-flex fe-h-6 fe-w-11 fe-flex-shrink-0 fe-rounded-full fe-border-2 fe-border-transparent fe-transition-colors fe-cursor-pointer ${
-          isOn ? 'fe-bg-primary-600' : 'fe-bg-gray-200'
+          isOn ? 'fe-bg-primary-600' : 'fe-bg-gray-300'
         } ${isDisabled ? 'fe-opacity-50 fe-cursor-not-allowed' : ''}`}
         onClick={() => {
           onChange(!isOn);

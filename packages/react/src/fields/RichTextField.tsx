@@ -23,13 +23,13 @@ export function RichTextField({ fieldId }: RichTextFieldProps) {
   ];
 
   return (
-    <div className="fe-border fe-border-gray-300 fe-rounded-md fe-overflow-hidden">
+    <div className="fe-border fe-border-gray-300 fe-rounded-sm fe-overflow-hidden">
       <div className="fe-flex fe-gap-1 fe-p-1 fe-bg-gray-50 fe-border-b fe-border-gray-300">
         {buttons.map((btn) => (
           <button
             key={btn.cmd}
             type="button"
-            className="fe-px-2 fe-py-1 fe-text-xs fe-font-medium fe-rounded hover:fe-bg-gray-200 fe-transition-colors"
+            className="fe-px-2 fe-py-1 fe-text-xs fe-font-medium hover:fe-bg-gray-200 fe-transition-colors"
             title={btn.cmd}
             onMouseDown={(e) => {
               e.preventDefault();
